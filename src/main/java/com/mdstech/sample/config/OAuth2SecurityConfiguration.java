@@ -52,12 +52,12 @@ public class OAuth2SecurityConfiguration extends WebSecurityConfigurerAdapter {
     public UserDetailsService getUserDefaultDetailsService() {
         String password = passwordEncoder().encode("password");
         return new InMemoryUserDetailsManager(User
-                .withUsername("habuma")
+                .withUsername("user1")
                 .password(password)
                 .authorities("ROLE_USER", "ROLE_ADMIN")
                 .build(),
                 User
-                        .withUsername("izzy")
+                        .withUsername("user2")
                         .password(password)
                         .authorities("ROLE_USER")
                         .build());

@@ -3,14 +3,18 @@ pipeline {
     agent any
     stages {
         stage("Init") {
-            checkout scm
+            steps {
+                checkout scm
+            }
         }
 
         stage("build") {
-            def WORKSPACE = pwd()
-            ciPipeline {
-                WORKDIR = "${WORKSPACE}"
-                METADATA = "src/main/resources/application.yaml"
+            steps {
+                def WORKSPACE = pwd()
+                ciPipeline {
+                    WORKDIR = "${WORKSPACE}"
+                    METADATA = "src/main/resources/application.yaml"
+                }
             }
         }
     }

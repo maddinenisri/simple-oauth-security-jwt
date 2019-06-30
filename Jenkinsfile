@@ -1,8 +1,10 @@
 @Library('devops-lib@master') _
 
-WORKSPACE = pwd()
+node {
+    WORKSPACE = pwd()
 
-ciPipeline{
-    WORKDIR = "${WORKSPACE}"
-    METADATA = "src/main/resources/application.yaml"
+    ciPipeline{
+        WORKDIR = "${WORKSPACE}"
+        METADATA = "src/main/resources/application.yaml"
+    }
 }

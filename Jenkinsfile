@@ -4,7 +4,7 @@ node {
     WORKSPACE = pwd()
 
     ciPipeline{
-        WORKDIR = "${WORKSPACE}"
+        WORKDIR = WORKSPACE
         METADATA = "src/main/resources/application.yaml"
     }
 }

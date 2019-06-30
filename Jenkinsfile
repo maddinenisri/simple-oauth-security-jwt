@@ -1,5 +1,8 @@
 @Library('devops-lib@master') _
 pipeline {
+    environment {
+        WORKSPACE = pwd()
+    }
     agent any
     stages {
         stage("Init") {
@@ -10,11 +13,7 @@ pipeline {
 
         stage("build") {
             steps {
-                WORKSPACE = pwd()
-                ciPipeline {
-                    WORKDIR = "${WORKSPACE}"
-                    METADATA = "src/main/resources/application.yaml"
-                }
+                ciPipeline WORKDIR: "${WORKSPACE}",  METADATA: "src/main/resources/application.yaml"
             }
         }
     }

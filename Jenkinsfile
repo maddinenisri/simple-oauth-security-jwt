@@ -10,7 +10,7 @@ pipeline {
 
         stage("build") {
             steps {
-                def WORKSPACE = pwd()
+                WORKSPACE = pwd()
                 ciPipeline {
                     WORKDIR = "${WORKSPACE}"
                     METADATA = "src/main/resources/application.yaml"
